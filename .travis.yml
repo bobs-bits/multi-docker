@@ -1,0 +1,33 @@
+
+#hey travis, I need sudo
+sudo: required
+
+#hey travis, I need docker
+services:
+  - docker
+
+#hey travis, do this before trying to run scripts
+before_install:
+  - docker build -t peterk/docker-react -f Dockerfile.dev .
+
+#scripts are run until we are done or hit an error
+#travis expects the running command to exit (so cant just run npm run test)
+script:
+  - docker run peterk/docker-react npm run test -- --coverage
+
+#hey travis, put this on aws
+deploy:
+  provider: elasticbeanstalk
+  region: "us-west-2"
+  app: "docker-react"
+  env: "DockerReact-env"
+  bucket_name: "elasticbeanstalk-us-west-2-117952388639"
+  bucket_path: "docker-react"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"
+  
+
+
