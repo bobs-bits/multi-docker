@@ -8,24 +8,24 @@ services:
 
 #hey travis, do this before trying to run scripts
 before_install:
-  - docker build -t peterk/react-test -f client/Dockerfile.dev ./client
+  - docker build -t wildncrazyguy/react-test -f client/Dockerfile.dev ./client
 
 #scripts are run until we are done or hit an error
 #travis expects the running command to exit (so cant just run npm run test)
 script:
-  - docker run peterk/react-test npm run test -- --coverage
+  - docker run wildncrazyguy/react-test npm run test -- --coverage
 
 after_success:
-  - docker build -t peterk/multi-client -f client/Dockerfile.dev ./client
-  - docker build -t peterk/multi-nginx  -f nginx/Dockerfile.dev ./nginx
-  - docker build -t peterk/multi-server -f server/Dockerfile.dev ./server
-  - docker build -t peterk/multi-worker -f worker/Dockerfile.dev ./worker
+  - docker build -t wildncrazyguy/multi-client -f client/Dockerfile.dev ./client
+  - docker build -t wildncrazyguy/multi-nginx  -f nginx/Dockerfile.dev ./nginx
+  - docker build -t wildncrazyguy/multi-server -f server/Dockerfile.dev ./server
+  - docker build -t wildncrazyguy/multi-worker -f worker/Dockerfile.dev ./worker
   #take images and push up to docker hub
   - echo "$DOCKER_PASS" | docker login -u "$DOCKER_ID" --password-stdin  
-  - docker push peterk/multi-client
-  - docker push peterk/multi-nginx
-  - docker push peterk/multi-server
-  - docker push peterk/multi-worker
+  - docker push wildncrazyguy/multi-client
+  - docker push wildncrazyguy/multi-nginx
+  - docker push wildncrazyguy/multi-server
+  - docker push wildncrazyguy/multi-worker
 
 
 

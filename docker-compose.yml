@@ -17,7 +17,7 @@ services:
       context: server 
     volumes:
       - /app/node_modules
-        ./server:/app peterk/complex-react
+        ./server:/app wildncrazyguy/complex-react
     environment:
         #setup env variables; if set as k=v, then set at runtime via command line args; if just k, taken from env of host process (good for secrets)
       - REDIS_HOST=redis
@@ -33,14 +33,14 @@ services:
       context: client 
     volumes:
       - /app/node_modules
-        ./client:/app peterk/complex-react-client
+        ./client:/app wildncrazyguy/complex-react-client
   worker:
     build: 
       dockerfile: Dockerfile.dev
       context: worker 
     volumes:
       - /app/node_modules
-        ./worker:/app peterk/complex-react-worker
+        ./worker:/app wildncrazyguy/complex-react-worker
     environment:
       - REDIS_HOST=redis
       - REDIS_PORT=6379

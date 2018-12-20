@@ -1,0 +1,63 @@
+
+
+wtf - travis says it pushed images to docker A-OK,
+0.52s$ echo "$DOCKER_PASS" | docker login -u "$DOCKER_ID" --password-stdin
+Login Succeeded
+after_success.6
+0.55s$ docker push wildncrazyguy/multi-client
+The push refers to a repository [docker.io/wildncrazyguy/multi-client]
+e812a391a13a: Preparing
+1afdfe9053b0: Preparing
+2dc7b55426d8: Preparing
+7a751ff6295d: Preparing
+1522ff5f975a: Preparing
+5b0f65afbf97: Preparing
+df64d3292fd6: Preparing
+5b0f65afbf97: Waiting
+df64d3292fd6: Waiting
+denied: requested access to the resource is denied
+after_success.7
+0.51s$ docker push wildncrazyguy/multi-nginx
+The push refers to a repository [docker.io/wildncrazyguy/multi-nginx]
+46fc92995fb9: Preparing
+ece4f9fdef59: Preparing
+ad5345cbb119: Preparing
+ef68f6734aa4: Preparing
+ad5345cbb119: Waiting
+ef68f6734aa4: Waiting
+denied: requested access to the resource is denied
+after_success.8
+0.58s$ docker push wildncrazyguy/multi-server
+The push refers to a repository [docker.io/wildncrazyguy/multi-server]
+1cde3ff04ae3: Preparing
+63ba4061fe02: Preparing
+8dac61109a64: Preparing
+7a751ff6295d: Preparing
+1522ff5f975a: Preparing
+5b0f65afbf97: Preparing
+df64d3292fd6: Preparing
+8dac61109a64: Waiting
+7a751ff6295d: Waiting
+1522ff5f975a: Waiting
+5b0f65afbf97: Waiting
+df64d3292fd6: Waiting
+63ba4061fe02: Waiting
+1cde3ff04ae3: Waiting
+denied: requested access to the resource is denied
+after_success.9
+0.50s$ docker push wildncrazyguy/multi-worker
+The push refers to a repository [docker.io/wildncrazyguy/multi-worker]
+b6bc278e7218: Preparing
+b99ba95defaa: Preparing
+0a1f6d356c1b: Preparing
+7a751ff6295d: Preparing
+1522ff5f975a: Preparing
+5b0f65afbf97: Preparing
+df64d3292fd6: Preparing
+7a751ff6295d: Waiting
+1522ff5f975a: Waiting
+5b0f65afbf97: Waiting
+df64d3292fd6: Waiting
+0a1f6d356c1b: Waiting
+denied: requested access to the resource is denied
+
